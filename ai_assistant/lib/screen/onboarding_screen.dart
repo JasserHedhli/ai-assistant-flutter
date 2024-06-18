@@ -2,7 +2,9 @@ import 'package:ai_assistant/helper/global.dart';
 import 'package:ai_assistant/model/onboard.dart';
 import 'package:ai_assistant/screen/home_screen.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:get/get.dart';
+// ignore: depend_on_referenced_packages
 import 'package:lottie/lottie.dart';
 
 class OnboardScreen extends StatelessWidget {
@@ -13,14 +15,13 @@ class OnboardScreen extends StatelessWidget {
     final ctrl = PageController();
 
     final list = [
-      //onboarding 1
+      // Onboarding 1
       Onboard(
           title: 'Ask me Anything',
           subtitle:
-              'I can be your best FRiend & You can ask me anything & I will help you!',
+              'I can be your best friend & You can ask me anything & I will help you!',
           lottie: 'ai_ask_me'),
-
-      //onboarding 2
+      // Onboarding 2
       Onboard(
           title: 'Imagination to Reality',
           subtitle:
@@ -34,14 +35,14 @@ class OnboardScreen extends StatelessWidget {
             itemCount: list.length,
             itemBuilder: ((context, index) {
               final isLast = index == list.length - 1;
-              Column(
+              return Column(
                 children: [
-                  //lottie
+                  // Lottie animation
                   Lottie.asset('assets/lottie/${list[index].lottie}.json',
                       height: mq.height * .6,
                       width: isLast ? mq.width * .7 : null),
 
-                  //title
+                  // Title
                   Text(
                     list[index].title,
                     style: const TextStyle(
@@ -50,10 +51,10 @@ class OnboardScreen extends StatelessWidget {
                         letterSpacing: .5),
                   ),
 
-                  //adding some spacing
+                  // Adding some spacing
                   SizedBox(height: mq.height * .015),
 
-                  //subtitle
+                  // Subtitle
                   SizedBox(
                     width: mq.width * .7,
                     child: Text(
@@ -68,7 +69,7 @@ class OnboardScreen extends StatelessWidget {
 
                   const Spacer(),
 
-                  //dots
+                  // Dots
                   Wrap(
                     spacing: 10,
                     children: List.generate(
@@ -85,7 +86,7 @@ class OnboardScreen extends StatelessWidget {
 
                   const Spacer(),
 
-                  //button
+                  // Button
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           shape: const StadiumBorder(),
@@ -96,9 +97,6 @@ class OnboardScreen extends StatelessWidget {
                       onPressed: () {
                         if (isLast) {
                           Get.off(() => const HomeScreen());
-                          //Navigator.of(context).pushReplacement(
-                          //   MaterialPageRoute(
-                          //      builder: (_) => const HomeScreen()));
                         } else {
                           ctrl.nextPage(
                               duration: const Duration(milliseconds: 600),

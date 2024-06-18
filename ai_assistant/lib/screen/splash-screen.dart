@@ -18,12 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    //await for some time on splash & then move to home screen
+    // Await for some time on splash & then move to home screen
     Future.delayed(const Duration(seconds: 2), () {
-      //Navigator.of(context).pushReplacement(MaterialPageRoute(
-      //    builder: (_) => Preference.showOnboarding
-      //        ? const OnboardScreen()
-      //        : const HomeScreen()));
       Get.off(() => Preference.showOnboarding
           ? const OnboardScreen()
           : const HomeScreen());
@@ -32,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //init device size
+    // Initialize device size
     mq = MediaQuery.sizeOf(context);
 
     return Scaffold(
@@ -40,9 +36,9 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.maxFinite,
         child: Column(
           children: [
-            //adding some space
+            // Adding some space
             const Spacer(flex: 2),
-            //logo
+            // Logo
             Card(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -52,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       width: mq.width * .4),
                 )),
             const Spacer(),
-            //lottie animation
+            // Lottie animation
             const CustomLoading()
           ],
         ),

@@ -35,6 +35,9 @@ dev_dependencies:
   #for state management
   get: ^4.6.6
 
+  #for custom animation
+  flutter_animate: ^4.5.0
+
 flutter:
   uses-material-design: true
 
